@@ -1,0 +1,9 @@
+spawn,Battle!
+death,You were destroyed in battle
+winnerTeam,The winner is
+spectate,Spectate
+battleInProgress,Battle is already in progress
+startBattle,Battle is about to start
+battleStarted,Battle started
+waiting,Waiting for Pilots
+capTime,capture
