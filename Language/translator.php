@@ -19,4 +19,9 @@ class Translator
     {
         return $this->sheet[$identifier];
     }
+
+    public function echoText($identifier)
+    {
+        echo($this->sheet[$identifier]);
+    }
 }
