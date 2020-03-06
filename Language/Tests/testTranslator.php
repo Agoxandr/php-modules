@@ -1,5 +1,5 @@
 <?php
-include(__DIR__ . "/../translator.php");
+include("");
 use Agoxandr\Language\Translator;
 
 $translator = new Translator(__DIR__ . "/test", array("en"));
