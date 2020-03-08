@@ -3,24 +3,25 @@ namespace Agoxandr\Language;
 
 class Translator
 {
+    public $lang = "de";
     private $sheet = array();
 
     public function __construct(string $pathNoFilenameEnd, array $supportedLanguages = array("de"), int $maxTextLength = 0)
     {
-        $lang = $supportedLanguages[0];
+        $this->lang = $supportedLanguages[0];
         if (!empty($_GET["lang"])) {
             $getLang = $_GET["lang"];
             if (in_array($getLang, $supportedLanguages)) {
-                $lang = $getLang;
+                $this->lang = $getLang;
             }
         }
         if (!empty($_COOKIE["lang"])) {
             $cookieLang = $_COOKIE["lang"];
             if (in_array($cookieLang, $supportedLanguages)) {
-                $lang = $cookieLang;
+                $this->lang = $cookieLang;
             }
         }
-        if (($handle = fopen($pathNoFilenameEnd . "-" . $lang . ".csv", "r")) !== false) {
+        if (($handle = fopen($pathNoFilenameEnd . "-" . $this->lang . ".csv", "r")) !== false) {
             while (($data = fgetcsv($handle, $maxTextLength, ",")) !== false) {
                 $this->sheet[$data[0]] = $data[1];
             }
