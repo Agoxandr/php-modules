@@ -1,11 +1,23 @@
 <?php
+
 namespace Agoxandr\Language;
 
 class Translator
 {
+    /**
+     * Current lang
+     * @var string
+     */
     public $lang = "de";
     private $sheet = array();
 
+    /**
+     * 
+     * @param string $pathNoFilenameEnd -currentLang.csv is automatically added.
+     * @param array $supportedLanguages 
+     * @param int $maxTextLength Must be greater than the longest line (in characters) to be found in the CSV file (allowing for trailing line-end characters). Omitting this parameter (or setting it to 0) the maximum line length is not limited, which is slightly slower.
+     * @return void 
+     */
     public function __construct(string $pathNoFilenameEnd, array $supportedLanguages = array("de"), int $maxTextLength = 0)
     {
         $this->lang = $supportedLanguages[0];
@@ -29,13 +41,23 @@ class Translator
         }
     }
 
+    /**
+     * Return full text of identifier
+     * @param string $identifier 
+     * @return string
+     */
     public function getText($identifier)
     {
         return $this->sheet[$identifier];
     }
 
+    /**
+     * Echo full text of identifier
+     * @param string $identifier 
+     * @return void 
+     */
     public function echoText($identifier)
     {
-        echo($this->sheet[$identifier]);
+        echo ($this->sheet[$identifier]);
     }
 }
