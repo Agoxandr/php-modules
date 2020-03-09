@@ -2,6 +2,8 @@
 
 namespace Agoxandr\Language;
 
+require __DIR__ . '/../vendor/autoload.php';
+
 class Translator
 {
     /**
@@ -20,7 +22,14 @@ class Translator
      */
     public function __construct(string $pathNoFilenameEnd, array $supportedLanguages = array("de"), int $maxTextLength = 0)
     {
-        $this->lang = $supportedLanguages[0];
+        $negotiator = new \Negotiation\LanguageNegotiator();
+
+        $acceptLanguageHeader = 'en; q=0.1, de; q=0.2';
+        $priorities = array('de', 'en');
+
+        $bestLanguage = $negotiator->getBest($acceptLanguageHeader, $priorities);
+
+        $this->lang = $bestLanguage->getType();
         if (!empty($_GET["lang"])) {
             $getLang = $_GET["lang"];
             if (in_array($getLang, $supportedLanguages)) {
