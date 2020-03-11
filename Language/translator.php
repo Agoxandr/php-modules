@@ -24,24 +24,9 @@ class Translator
     {
         $negotiator = new \Negotiation\LanguageNegotiator();
 
-        $acceptLanguageHeader = 'en; q=0.1, de; q=0.2';
-        $priorities = array('de', 'en');
-
-        $bestLanguage = $negotiator->getBest($acceptLanguageHeader, $priorities);
+        $bestLanguage = $negotiator->getBest($_SERVER["HTTP_ACCEPT_LANGUAGE"], $supportedLanguages);
 
         $this->lang = $bestLanguage->getType();
-        if (!empty($_GET["lang"])) {
-            $getLang = $_GET["lang"];
-            if (in_array($getLang, $supportedLanguages)) {
-                $this->lang = $getLang;
-            }
-        }
-        if (!empty($_COOKIE["lang"])) {
-            $cookieLang = $_COOKIE["lang"];
-            if (in_array($cookieLang, $supportedLanguages)) {
-                $this->lang = $cookieLang;
-            }
-        }
         if (($handle = fopen($pathNoFilenameEnd . "-" . $this->lang . ".csv", "r")) !== false) {
             while (($data = fgetcsv($handle, $maxTextLength, ",")) !== false) {
                 $this->sheet[$data[0]] = $data[1];
