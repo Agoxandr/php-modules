@@ -55,3 +55,7 @@ class Translator
         echo ($this->sheet[$identifier]);
     }
 }
+
+namespace PHPSTORM_META {
+    override(\Negotiation\LanguageNegotiator::getBest(0), \Negotiation\AcceptLanguage::class);
+}
