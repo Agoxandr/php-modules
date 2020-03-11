@@ -1,5 +1,6 @@
 {
     "require": {
-        "willdurand/negotiation": "^2.3"
+    },
+    "require-dev": {
     }
 }

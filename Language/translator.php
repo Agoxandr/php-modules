@@ -2,7 +2,11 @@
 
 namespace Agoxandr\Language;
 
-require __DIR__ . '/../vendor/autoload.php';
+include(__DIR__ . "/../Negotiation/Match.php");
+include(__DIR__ . "/../Negotiation/BaseAccept.php");
+include(__DIR__ . "/../Negotiation/AcceptLanguage.php");
+include(__DIR__ . "/../Negotiation/AbstractNegotiator.php");
+include(__DIR__ . "/../Negotiation/LanguageNegotiator.php");
 
 class Translator
 {
@@ -54,8 +58,4 @@ class Translator
     {
         echo ($this->sheet[$identifier]);
     }
-}
-
-namespace PHPSTORM_META {
-    override(\Negotiation\LanguageNegotiator::getBest(0), \Negotiation\AcceptLanguage::class);
 }
