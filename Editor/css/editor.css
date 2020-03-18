@@ -1,0 +1,53 @@
+.quote {
+  padding: 1em;
+  background-color: #eff2f5;
+}
+
+.quote span {
+  display: block;
+  text-align: right;
+}
+
+.image img {
+  display: block;
+}
+
+.image .background {
+  padding: 10px;
+  display: block;
+  max-width: 60%;
+  margin: 0 auto;
+}
+
+.image .stretched {
+  width: 80%;
+  max-width: 80%;
+}
+
+.image .borderBackground {
+  padding: 1px;
+}
+
+.image .borderBackground0 {
+  padding: 0;
+}
+
+.background {
+  background-color: #eff2f5;
+}
+
+.background p {
+  margin: 0;
+  padding: 1em;
+  text-align: center;
+}
+
+.border {
+  border: 1px solid #e8e8eb;
+  padding: 1px;
+}
+
+.border p {
+  margin: 1em;
+}
+/*# sourceMappingURL=editor.css.map */

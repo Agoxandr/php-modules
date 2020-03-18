@@ -1,5 +1,6 @@
 {
     "require": {
+        "codex-team/editor.js": "dev-master"
     },
     "require-dev": {
     }

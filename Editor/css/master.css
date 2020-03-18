@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f0f0f0;
+}
+
+.gui {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+#editorjs {
+  background-color: white;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#post {
+  background-color: white;
+  padding: 1em;
+}
+
+#files img {
+  height: 2em;
+  vertical-align: bottom;
+}
+
+iframe {
+  width: 100%;
+}
+/*# sourceMappingURL=master.css.map */

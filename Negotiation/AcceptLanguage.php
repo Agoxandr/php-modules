@@ -7,7 +7,6 @@ use Negotiation\Exception\InvalidLanguage;
 final class AcceptLanguage extends BaseAccept
 {
     private $language;
-    private $script;
     private $region;
 
     public function __construct($value)

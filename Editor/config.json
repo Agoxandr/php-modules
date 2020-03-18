@@ -1,0 +1,72 @@
+{
+    "tools": {
+        "header": {
+            "text": {
+                "type": "string",
+                "allowedTags": "i,b,a[href]"
+            },
+            "level": {
+                "type": "int",
+                "canBeOnly": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6
+                ]
+            }
+        },
+        "paragraph": {
+            "text": {
+                "type": "string",
+                "allowedTags": "i,b,a[href]"
+            }
+        },
+        "list": {
+            "style": {
+                "type": "string",
+                "canBeOnly": [
+                    "ordered",
+                    "unordered"
+                ]
+            },
+            "items": {
+                "type": "array",
+                "data": {
+                    "-": {
+                        "type": "string",
+                        "allowedTags": "i,b,a[href]"
+                    }
+                }
+            }
+        },
+        "quote": {
+            "text": {
+                "type": "string",
+                "allowedTags": "i,b,a[href]"
+            },
+            "caption": {
+                "type": "string",
+                "allowedTags": "i,b,a[href]"
+            },
+            "alignment": {
+                "type": "string",
+                "canBeOnly": [
+                    "left",
+                    "center"
+                ]
+            }
+        },
+        "image": {
+            "url": "string",
+            "caption": {
+                "type": "string",
+                "allowedTags": "a[href]"
+            },
+            "withBorder": "boolean",
+            "withBackground": "boolean",
+            "stretched": "boolean"
+        }
+    }
+}
