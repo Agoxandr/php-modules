@@ -1,12 +1,12 @@
 <?php
-require("../vendor/autoload.php");
-include("../Utils/debug.php");
+
+require(__DIR__ . "/../vendor/autoload.php");
+include(__DIR__ . "/../Utils/debug.php");
 
 use \EditorJS\EditorJS;
 
-$data = file_get_contents("php://input");
-file_put_contents("saved.json", $data);
-$configuration = file_get_contents("../Content/config.json");
+$data = file_get_contents(__DIR__ . "/savedLive.json");
+$configuration = file_get_contents(__DIR__ . "/config.json");
 
 try {
   // Initialize Editor backend and validate structure

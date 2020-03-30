@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Post</title>
     <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/editor.css">
+    <link rel="stylesheet" href="../Content/css/editor.css">
 </head>
 
 <body onbeforeunload="return true">
@@ -34,7 +34,8 @@
         <div></div>
         <h2>Export</h2>
         <button onclick="save()">Save</button>
-        <button onclick="">Set Live</button>
+        <button onclick="saveLive()">Set Live</button>
+        <span id="log"></span>
         <h2>Output</h2>
         <div id="post"></div>
     </div>

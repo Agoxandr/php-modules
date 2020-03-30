@@ -57,3 +57,17 @@ function send(jsonString) {
         $("#post").html("").append(data);
     });
 }
+
+function saveLive() {
+    editor.save().then((outputData) => {
+        sendLive(JSON.stringify(outputData));
+    }).catch((error) => {
+        console.log('Saving failed: ', error);
+    });
+}
+
+function sendLive(jsonString) {
+    $.post("saveLivePost.php", jsonString).done(function (data) {
+        $("#log").html("").append(data);
+    });
+}
