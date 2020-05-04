@@ -31,7 +31,7 @@ class Translator
         if (empty($token)) {
             $token = $supportedLanguages[0];
         }
-        $bestLanguage = $negotiator->getBest($_SERVER["HTTP_ACCEPT_LANGUAGE"], $supportedLanguages);
+        $bestLanguage = $negotiator->getBest($token, $supportedLanguages);
         $this->lang = $bestLanguage->getType();
         if (($handle = fopen($pathNoFilenameEnd . "-" . $this->lang . ".csv", "r")) !== false) {
             while (($data = fgetcsv($handle, $maxTextLength, ",")) !== false) {
