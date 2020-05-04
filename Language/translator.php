@@ -27,9 +27,11 @@ class Translator
     public function __construct(string $pathNoFilenameEnd, array $supportedLanguages = array("de"), int $maxTextLength = 0)
     {
         $negotiator = new \Negotiation\LanguageNegotiator();
-
+        $token = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+        if (empty($token)) {
+            $token = $supportedLanguages[0];
+        }
         $bestLanguage = $negotiator->getBest($_SERVER["HTTP_ACCEPT_LANGUAGE"], $supportedLanguages);
-
         $this->lang = $bestLanguage->getType();
         if (($handle = fopen($pathNoFilenameEnd . "-" . $this->lang . ".csv", "r")) !== false) {
             while (($data = fgetcsv($handle, $maxTextLength, ",")) !== false) {
