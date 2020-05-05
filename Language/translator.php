@@ -5,11 +5,7 @@ namespace Agoxandr\Language;
 use Debug;
 
 include(__DIR__ . "/../Utils/debug.php");
-include(__DIR__ . "/../Negotiation/Match.php");
-include(__DIR__ . "/../Negotiation/BaseAccept.php");
-include(__DIR__ . "/../Negotiation/AcceptLanguage.php");
-include(__DIR__ . "/../Negotiation/AbstractNegotiator.php");
-include(__DIR__ . "/../Negotiation/LanguageNegotiator.php");
+include(__DIR__ . "/../Utils/common.php");
 
 class Translator
 {
@@ -29,15 +25,16 @@ class Translator
      */
     public function __construct(string $pathNoFilenameEnd, array $supportedLanguages = array("de"), int $maxTextLength = 0)
     {
-        $negotiator = new \Negotiation\LanguageNegotiator();
-        $token = "";
-        if (empty($_SERVER["HTTP_ACCEPT_LANGUAGE"]) || $_SERVER["HTTP_ACCEPT_LANGUAGE"] == "") {
-            $token = $supportedLanguages[0];
-        } else {
-            $token = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+        $acceptLanguage = $_SERVER["HTTP_ACCEPT_LANGUAGE"];
+        if (empty($acceptLanguage)) {
+            $this->lang = $supportedLanguages[0];
         }
-        $bestLanguage = $negotiator->getBest($token, $supportedLanguages);
-        $this->lang = $bestLanguage->getType();
+        foreach ($supportedLanguages as $supportedLanguage) {
+            if (str_contains($acceptLanguage, $supportedLanguage)) {
+                $this->lang = $supportedLanguage;
+                break;
+            }
+        }
         if (($handle = fopen($pathNoFilenameEnd . "-" . $this->lang . ".csv", "r")) !== false) {
             while (($data = fgetcsv($handle, $maxTextLength, ",")) !== false) {
                 $this->sheet[$data[0]] = $data[1];
