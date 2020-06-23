@@ -2,8 +2,6 @@
 
 namespace Agoxandr\Language;
 
-use Debug;
-
 include(__DIR__ . "/../Utils/debug.php");
 include(__DIR__ . "/../Utils/common.php");
 

@@ -28,7 +28,7 @@
     <script src="editor.js"></script>
     <div class="gui">
         <h2>Upload Images</h2>
-        <iframe src="uploader.php" frameborder="0"></iframe>
+        <iframe src="uploader.html" frameborder="0"></iframe>
         <h2>Server Files</h2>
         <iframe src="files.php" frameborder="0" height="300"></iframe>
         <div></div>
